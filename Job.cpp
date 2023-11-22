@@ -1,0 +1,10 @@
+
+class Job{
+    private:
+
+    public:
+
+
+
+
+};
