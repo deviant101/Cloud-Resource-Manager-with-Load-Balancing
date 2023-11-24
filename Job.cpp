@@ -1,3 +1,4 @@
+# pragma once
 #include <iostream>
 #include <time.h>
 using namespace std;
@@ -8,26 +9,62 @@ class Job{
         int priority;
         int computationalRequirements;       //measured in cycles per second
         string status;
+        string processName;
 
-        Job(int pri){
+        Job() {}
+
+        void addJobDetails(int prioritiesArr[], int arrSize){
+
+            cout<<"Process/Job Name  : ";
+            getline(cin,processName);
+
+            cout<<"Required Computational Power(Cycles Per Second)  : ";
+            cin>>computationalRequirements;
+
+            status="Queued";
             srand(time(NULL));
             processId = rand();
-            computationalRequirements = rand();
-            status="Queued";
-            priority = pri;
-        }
 
-        void processInfo(){
-            cout<<"Process ID: "<<processId<<endl
-                <<"Process Priority: "<<priority<<endl
-                <<"Status: "<<status<<endl;
-        }
 
+            bool priority_validation;
+            do{
+
+                cout<<"Priority  : ";
+                cin>>priority;
+                priority_validation = false;
+
+                for(int i=0; i<arrSize; ++i)
+                    if(priority==prioritiesArr[i]){
+                        cout<<"\nInvalid Priority! Try other Priority\n\n";
+                        priority_validation=true;
+                        break;
+                    }
+
+            }while(priority_validation);
+        }
         void setStatus(string newStatus){
             status = newStatus;
         }
 
+        Job& operator=(const Job& other){
+            if (this != &other) {
+                processId = other.processId;
+                priority = other.priority;
+                computationalRequirements = other.computationalRequirements;
+                status = other.status;
+            }
+            return *this;
+        }
 
+        void JobDetails(){
+            cout<<"---------------[ Process Details ]--------------\n"<<endl;
+            cout<<"Process Id: "<<processId<<endl
+                <<"Process Name: "<<processName<<endl
+                <<"Priority: "<<priority<<endl
+                <<"Computing requirements: "<<computationalRequirements<<" Cycles Per Second"<<endl
+                <<"Status: "<<status<<endl;
+            cout<<"\n------------------------------------------------"<<endl;
+        }
 };
 /*
         Process Status
