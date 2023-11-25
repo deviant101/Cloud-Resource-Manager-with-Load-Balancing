@@ -13,7 +13,7 @@ class Job{
 
         Job() {}
 
-        void addJobDetails(int prioritiesArr[], int arrSize){
+        void addJobDetails(List &Priorities){
 
             cout<<"Process/Job Name  : ";
             getline(cin,processName);
@@ -33,12 +33,11 @@ class Job{
                 cin>>priority;
                 priority_validation = false;
 
-                for(int i=0; i<arrSize; ++i)
-                    if(priority==prioritiesArr[i]){
-                        cout<<"\nInvalid Priority! Try other Priority\n\n";
-                        priority_validation=true;
-                        break;
-                    }
+                if(Priorities.isDuplicate(priority)){
+                    cout<<"\nInvalid Priority! Try other Priority\n\n";
+                    priority_validation=true;
+                    break;
+                }
 
             }while(priority_validation);
         }
