@@ -54,6 +54,12 @@ class VM{
             Agent.Status();                
         }
 
+        bool jobAvailable(){
+            if(currentJobs<maxJobsCapacity)
+                return true;
+            return false;
+        }
+
         bool isFull(){
             if(currentJobs==maxJobsCapacity)
                 return true;

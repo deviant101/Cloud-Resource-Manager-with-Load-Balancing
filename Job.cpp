@@ -41,6 +41,7 @@ class Job{
 
             }while(priority_validation);
         }
+
         void setStatus(string newStatus){
             status = newStatus;
         }
