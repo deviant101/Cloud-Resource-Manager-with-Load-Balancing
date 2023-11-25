@@ -1,3 +1,4 @@
+# pragma once
 #include <iostream>
 using namespace std;
 
@@ -17,7 +18,7 @@ class LoadAgent{
         }
 
         void Status(){
-            cout<<"Current Speed: "<<speedGHz<<" GHz"<<endl
-                <<"Utilization: "<<utilization<<" %"<<endl;
+            cout<<"Current Speed : "<<speedGHz<<" GHz"<<endl
+                <<"Utilization : "<<utilization<<" %"<<endl;
         }
 };
