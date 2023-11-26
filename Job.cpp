@@ -1,6 +1,7 @@
 # pragma once
 #include <iostream>
 #include <time.h>
+#include "List.cpp"
 using namespace std;
 
 class Job{
@@ -10,6 +11,7 @@ class Job{
         int computationalRequirements;       //measured in cycles per second
         string status;
         string processName;
+        Job *next;
 
         Job() {}
 
@@ -36,10 +38,10 @@ class Job{
                 if(Priorities.isDuplicate(priority)){
                     cout<<"\nInvalid Priority! Try other Priority\n\n";
                     priority_validation=true;
-                    break;
                 }
 
             }while(priority_validation);
+            Priorities.insert(priority);
         }
 
         void setStatus(string newStatus){
@@ -52,6 +54,7 @@ class Job{
                 priority = other.priority;
                 computationalRequirements = other.computationalRequirements;
                 status = other.status;
+                processName = other.processName;
             }
             return *this;
         }
