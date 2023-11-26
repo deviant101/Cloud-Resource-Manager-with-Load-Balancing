@@ -37,7 +37,6 @@ public:
 	bool isDuplicate(int val){
 
 		for(int i=0; i<size; ++i){
-			cout<<arr[i]<<endl;
 			if(arr[i] == val)
 				return true;
 		}

@@ -24,15 +24,15 @@ class VM{
 
                 jobsHeap[currentJobs] = job;
                 Heapify(jobsHeap, maxJobsCapacity, currentJobs);
-                for(int i=0; i<currentJobs; ++i){
-                    jobsHeap[i].JobDetails();
-                }
+                // for(int i=0; i<currentJobs; ++i){
+                //     jobsHeap[i].JobDetails();
+                // }
                 ++currentJobs;
             }
             else{
                 cout << "VM is at full capacity. Unable to add job." << endl;
             }
-            // workLoad();
+            workLoad();
         }
 
         void check_current_jobs(){
@@ -63,7 +63,7 @@ class VM{
             // Agent.Status();
         }
         void VM_Details(){
-            cout<<"Computing Power : "<<computingPowerGHz<<endl
+            cout<<"Computing Power : "<<computingPowerGHz<<" GHz"<<endl
                 <<"Max Jobs Capacity : "<<maxJobsCapacity<<endl
                 <<"Current Jobs : "<<currentJobs<<endl;
             Agent.Status();

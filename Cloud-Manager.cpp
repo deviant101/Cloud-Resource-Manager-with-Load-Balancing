@@ -44,6 +44,9 @@ class Cloud_Manager{
                 else if(chioce==3){
                     completed_job();
                 }
+                else if(chioce==4){
+                    VM_Details();
+                }
                 else if(chioce==5)
                     break;
         }

@@ -10,11 +10,11 @@ class LoadAgent{
         LoadAgent() :speedGHz(0), utilization(0) {};
 
         void SpeedGHz(int currentjobs, int maxjobs, float maxspeed){
-            speedGHz = currentjobs/maxjobs*maxspeed;
+            speedGHz = float(currentjobs)/maxjobs*maxspeed;
         }
 
         void Utilization(int currentjobs, int maxjobs){
-            utilization = currentjobs/maxjobs*100;
+            utilization = float(currentjobs)/maxjobs*100;
         }
 
         void Status(){
