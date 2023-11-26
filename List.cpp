@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+using namespace std;
 class List
 {
 public:
@@ -12,13 +14,13 @@ public:
 		arr = new int[size];
 	}
 	void insert(int val){
-
 		int *newList = new int[size+1];
 		for(int i=0; i<size; ++i){
 			newList[i] = arr[i];
 		}
 		newList[size] = val;
 		++size;
+		arr = newList;
 	}
 	void remove(int val){
 
@@ -30,10 +32,12 @@ public:
 				newList[j++] = arr[i];
 		}
 		--size;
+		arr = newList;
 	}
 	bool isDuplicate(int val){
 
 		for(int i=0; i<size; ++i){
+			cout<<arr[i]<<endl;
 			if(arr[i] == val)
 				return true;
 		}
