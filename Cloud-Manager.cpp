@@ -35,7 +35,6 @@ class Cloud_Manager{
                 cout<<"Choice : ";
                 cin>>chioce;
                 cout<<endl;
-                cout<<chioce<<endl;
                 cin.ignore();
                 if(chioce==1){
                     add_job_in_VM();
