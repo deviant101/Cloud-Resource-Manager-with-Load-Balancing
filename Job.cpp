@@ -15,13 +15,23 @@ class Job{
 
         Job() {}
 
-        void addJobDetails(List &Priorities){
+        void addJobDetails(List &Priorities, float power){
 
             cout<<"Process/Job Name  : ";
             getline(cin,processName);
 
-            cout<<"Required Computational Power(Cycles Per Second)  : ";
-            cin>>computationalRequirements;
+            while(1){
+                cout<<"Required Computational Power(Cycles Per Second)  : ";
+                cin>>computationalRequirements;
+
+                if(computationalRequirements>power*1000000){
+                    cout<<"\nAlert!!!!VM Failure"<<endl;
+                    cout<<"Processing Power of Job Exceeded "<<power<<" GHz"<<endl;
+                    cout<<"\nTry Again\n"<<endl;
+                }
+                else
+                    break;
+            }
 
             status="Queued";
             srand(time(NULL));

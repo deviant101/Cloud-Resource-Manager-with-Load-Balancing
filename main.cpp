@@ -1,6 +1,4 @@
 #include <iostream>
-// #include "Job.cpp"
-// #include "VM.cpp"
 #include "Cloud-Manager.cpp"
 using namespace std;
 

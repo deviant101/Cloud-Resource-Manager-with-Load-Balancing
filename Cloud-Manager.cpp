@@ -34,6 +34,8 @@ class Cloud_Manager{
                 <<"5 - Exit"<<endl;
                 cout<<"Choice : ";
                 cin>>chioce;
+                cout<<endl;
+                cout<<chioce<<endl;
                 cin.ignore();
                 if(chioce==1){
                     add_job_in_VM();
@@ -55,19 +57,19 @@ class Cloud_Manager{
     void add_job_in_VM(){
         VM *temp = VMs_head;
         if(temp==nullptr){
-            deploy_new_VM();
+            deploy_new_VM();        //Deploying new VM when 1st Job is added
             temp = VMs_head;
         }
         while(temp != NULL){
-            if(temp->jobAvailable()){
+            if(temp->jobAvailable()){           //checking which VM can tolerate the job Load
                 Job job;
-                job.addJobDetails(Priorities);
+                job.addJobDetails(Priorities,temp->computingPowerGHz);
                 temp->addJob(job);
                 temp->workLoad();
                 break;
             }
             else{
-                deploy_new_VM();
+                deploy_new_VM();            //Deploying new VM to balance the load on other VMs
             }
             temp = temp->next;
         }
